@@ -1,6 +1,6 @@
 # My EKS Application Infrastructure
 
-This repository contains Terraform configurations and Kubernetes deployments for setting up an EKS-based application.
+This repository contains Terraform configurations and Kubernetes deployments for setting up an EKS-based application. This is the best practices version. More details on the best practices can be found here: [K8s Config Best Practices](https://exciting-amusement-090.notion.site/K8s-Best-Practices-a8d0410b3d17467f9164b6a19df7ad95?pvs=4)
 
 ## Directory Structure
 
