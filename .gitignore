@@ -12,3 +12,16 @@ pkg/
 .project
 .eclipse.buildship.core.prefs
 release/wi-kubernetes-manifests.yaml
+skaffold.yaml
+CONTRIBUTING.md
+CODEOWNERS
+src/
+release/
+pb/
+kubernetes-manifests/
+istio-manifests/
+hack/
+docs/
+cloudbuild.yaml
+LICENSE
+.github/
