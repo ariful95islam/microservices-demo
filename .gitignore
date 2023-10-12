@@ -26,3 +26,4 @@ cloudbuild.yaml
 LICENSE
 .github/
 *terraform*
+k8s-config.yaml
