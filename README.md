@@ -1,12 +1,12 @@
 # My EKS Application Infrastructure
 
-This repository contains Terraform configurations and Kubernetes deployments for setting up an EKS-based application. This is the best practices version. More details on the best practices can be found here: [K8s Config Best Practices](https://exciting-amusement-090.notion.site/K8s-Best-Practices-a8d0410b3d17467f9164b6a19df7ad95?pvs=4)
+This repository contains Terraform configurations and Kubernetes deployments for setting up an EKS-based application. This is the helmfile version. More details on this method can be found here: [Deployment with Helmfile](https://exciting-amusement-090.notion.site/K8s-Microservices-0ef8f69d41f84ded9ac1229c60aee801?pvs=4)
 
 ## Directory Structure
 
 - `vpc.tf`: Terraform configuration for AWS VPC setup.
 - `eks-cluster.tf`: Terraform configuration for AWS EKS cluster setup.
-- `k8s-config.yaml`: Kubernetes deployment configuration for the application microservices.
+- `helmcharts`: Kubernetes deployment configuration for the application microservices via helmfile.
 
 ## Prerequisites
 
@@ -14,6 +14,7 @@ This repository contains Terraform configurations and Kubernetes deployments for
 - AWS CLI configured with necessary permissions
 - `kubectl` installed for Kubernetes configurations
 - `aws-iam-authenticator` installed
+- `helmfile` installed
 
 ## Setup Instructions
 
@@ -35,20 +36,21 @@ This repository contains Terraform configurations and Kubernetes deployments for
 
 4. **Deploy Kubernetes Configurations**:
    ```bash
-   kubectl apply -f k8s-config.yaml
+   cd helmcharts
+   helmfile lint
+   helmfile sync
    ```
 
 ## Important Notes
 
 - The VPC is configured with both private and public subnets.
 - The EKS cluster is set up in the defined VPC and is tagged for development purposes.
-- The `k8s-config.yaml` deploys an email service to the EKS cluster.
 
 ## Cleanup
 
 To destroy the created infrastructure:
 ```bash
-kubectl delete -f k8s-config.yaml
+helmfile destroy
 terraform destroy
 ```
 
